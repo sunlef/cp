@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "ios": "cpp",
+        "iostream": "cpp",
+        "string": "cpp",
+        "algorithm": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "cstdio": "cpp",
+        "unordered_set": "cpp"
+    }
+}

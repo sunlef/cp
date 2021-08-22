@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "ios": "cpp",
+        "algorithm": "cpp",
+        "__config": "cpp",
+        "utility": "cpp",
+        "memory": "cpp",
+        "map": "cpp",
+        "set": "cpp"
+    }
+}

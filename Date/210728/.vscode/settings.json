@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "queue": "cpp",
+        "vector": "cpp",
+        "iostream": "cpp",
+        "unordered_map": "cpp"
+    }
+}
