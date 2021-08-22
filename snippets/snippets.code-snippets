@@ -1,0 +1,6 @@
+{
+    "begin(), end()": {
+        "prefix": "beginend",
+        "body": "${1:V1}.begin(), ${1:V1}.end()$0"
+    },
+}

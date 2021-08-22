@@ -1,0 +1,24 @@
+#clang-format -i <file>
+
+#edited at 03:21 2021/08/23
+
+Language: Cpp
+
+BasedOnStyle: Google
+
+IndentWidth: 4
+TabWidth: 4
+ColumnLimit: 144
+AccessModifierOffset: 0
+
+KeepEmptyLinesAtTheStartOfBlocks: true
+MaxEmptyLinesToKeep: 3
+
+AllowShortFunctionsOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+
+AlwaysBreakTemplateDeclarations: false
+AlwaysBreakBeforeMultilineStrings: false
+
+ReflowComments: false
