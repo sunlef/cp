@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "iostream": "cpp",
-        "ios": "cpp",
-        "algorithm": "cpp",
-        "unordered_map": "cpp",
-        "bitset": "cpp"
-    }
-}
