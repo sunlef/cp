@@ -1,3 +1,4 @@
+#pragma GCC optimize(2)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,7 +9,7 @@ int main() {
     int N;
     cin >> N;
     using i64 = long long;
-    i64 a[2 * N + 1], pre[2 * N + 1];
+    vector<i64> a(2 * N + 1), pre(2 * N + 1);
 
     for (int i = 1; i <= N; ++i) {
         cin >> a[i];
@@ -20,34 +21,29 @@ int main() {
         pre[i] = pre[i - 1] + a[i];
     }
 
-    i64 l = 0, r = pre[N] / 3 + 2, ans = r;
-
     auto check = [&](i64 x) -> bool {
         for (int i = 1; i <= N; ++i) {
-            auto begin = pre + i, end = pre + 2 * N + 1;
-            auto pos = lower_bound(begin, end, pre[i - 1] + x) - pre + 1;
-            begin = pre + pos;
-            pos = lower_bound(begin, end, pre[pos - 1] + x) - pre + 1;
-            begin = pre + pos;
-            pos = lower_bound(begin, end, pre[pos - 1] + x) - pre + 1;
-            if (pos <= N + i) {
+            auto pos1 = lower_bound(pre.begin() + i, pre.end(), pre[i] + x) - pre.begin();
+            auto pos2 = lower_bound(pre.begin() + pos1, pre.end(), pre[pos1] + x) - pre.begin();
+            auto pos3 = lower_bound(pre.begin() + pos2, pre.end(), pre[pos2] + x) - pre.begin();
+            if (pos3 <= N + i) {
                 return true;
             }
         }
         return false;
     };
 
-    while (l <= r) {
-        i64 mid = (l + r) >> 1;
+    i64 l = 0, r = (pre[N] + 2) / 3;
+    while (l < r) {
+        i64 mid = (l + r + 1) >> 1;
         if (check(mid)) {
-            ans = mid;
-            l = mid + 1;
+            l = mid;
         } else {
             r = mid - 1;
         }
     }
 
-    cout << ans << '\n';
+    cout << l << '\n';
 
     return 0;
 }
