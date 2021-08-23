@@ -7,10 +7,12 @@
             "label": "编译",
             "command": "g++",
             "args": [
+                "-D cleanblue",
                 "-g",
                 "${file}",
                 "-std=c++2a",
                 "-Wall",
+                "-O2",
                 "-o",
                 "${fileBasenameNoExtension}"
             ],
