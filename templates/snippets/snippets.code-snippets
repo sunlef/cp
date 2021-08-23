@@ -1,6 +1,62 @@
 {
     "begin(), end()": {
+        "scope": "cpp",
         "prefix": "beginend",
         "body": "${1:V1}.begin(), ${1:V1}.end()$0"
+    },
+    "sort(begin(), end())": {
+        "scope": "cpp",
+        "prefix": "sortbeginend",
+        "body": "sort(${1:V1}.begin(), ${1:V1}.end()$0)"
+    },
+    "sort(rbegin(), rend())": {
+        "scope": "cpp",
+        "prefix": "sortrbeginrend",
+        "body": "sort(${1:V1}.rbegin(), ${1:V1}.rend()$0)"
+    },
+    "find(begin(), end())": {
+        "scope": "cpp",
+        "prefix": "findbeginend",
+        "body": "find(${1:V1}.begin(), ${1:V1}.end(), ${0:VALUE})"
+    },
+    "reverse(begin(), end())": {
+        "scope": "cpp",
+        "prefix": "reversebeginend",
+        "body": "reverse(${1:V1}.begin(), ${1:V1}.end()$0)"
+    },
+    "random_shuffle(begin(), end())": {
+        "scope": "cpp",
+        "prefix": "random_shufflebeginend",
+        "body": "random_shuffle(${1:V1}.begin(), ${1:V1}.end()$0)"
+    },
+    "unique(begin(), end())": {
+        "scope": "cpp",
+        "prefix": "uniquebeginend",
+        "body": "unique(${1:V1}.begin(), ${1:V1}.end()$0)"
+    },
+    "lower_bound(begin(), end())": {
+        "scope": "cpp",
+        "prefix": "lower_boundbeginend",
+        "body": "lower_bound(${1:V1}.begin(), ${1:V1}.end(), ${0:VALUE})"
+    },
+    "upper_bound(begin(), end())": {
+        "scope": "cpp",
+        "prefix": "upper_boundbeginend",
+        "body": "upper_bound(${1:V1}.begin(), ${1:V1}.end(), ${0:VALUE})"
+    },
+    "lower_bound(rbegin(), rend())": {
+        "scope": "cpp",
+        "prefix": "lower_boundrbeginrend",
+        "body": "lower_bound(${1:V1}.rbegin(), ${1:V1}.rend(), ${0:VALUE})"
+    },
+    "upper_bound(rbegin(), rend())": {
+        "scope": "cpp",
+        "prefix": "upper_boundrbeginrend",
+        "body": "upper_bound(${1:V1}.rbegin(), ${1:V1}.rend(), ${0:VALUE})"
+    },
+    "next_permutation(begin(), end())": {
+        "scope": "cpp",
+        "prefix": "next_permutationbeginend",
+        "body": "next_permutation(${1:V1}.begin(), ${1:V1}.end()$0)"
     },
 }
