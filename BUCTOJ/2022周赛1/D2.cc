@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int dis[100][100];
-int edge[100][100];
-int pass[100][100];
-bool visited[1000];
+vector<vector<int>> dis(100, vector<int>(100, INT_MAX));
+vector<vector<int>> edge(100, vector<int>(100, -1));
+vector<vector<int>> pass(100, vector<int>(100, -1));
+vector<int> visited(1000, 0);
 
 int main() {
     std::ios::sync_with_stdio(false);
@@ -12,11 +12,6 @@ int main() {
 
     int N, M;
     cin >> N >> M;
-
-    memset(dis, 0x3f, sizeof dis);
-    memset(edge, -1, sizeof edge);
-    memset(pass, -1, sizeof pass);
-    memset(visited, 0, sizeof visited);
 
     for (int i = 0; i < M; ++i) {
         int a, b, c;
@@ -41,6 +36,7 @@ int main() {
         }
     }
 
+
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
             if (i != j) {
@@ -57,7 +53,7 @@ int main() {
                 dfs(i, j);
                 for (int i = 1; i < int(vec.size()); ++i) {
                     int u = vec[i - 1], v = vec[i];
-                    visited[edge[u][v]] = visited[edge[v][u]] = true;
+                    visited[edge[u][v]] = visited[edge[v][u]] = 1;
                 }
             }
         }
