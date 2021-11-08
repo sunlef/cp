@@ -21,7 +21,7 @@ int main() {
     for (auto &[x, v] : mp) {
         auto now = v.front();
         for (int i = 1; i < 6; ++i) {
-            next_permutation(now.begin(), now.end());
+            ranges::next_permutation(now);
             v.emplace_back(now);
         }
     }
