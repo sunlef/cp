@@ -1,10 +1,14 @@
 #clang-format -i <file>
 
-#edited at 03:21 2021/08/29
+#edited at 19:51 2021/11/08
 
 Language: Cpp
 
 BasedOnStyle: Google
+
+### WHY THIS TWO NOT WORK ????
+#ReferenceAlignment: Right 
+#PointerAlignment: Right
 
 IndentWidth: 4
 TabWidth: 4
