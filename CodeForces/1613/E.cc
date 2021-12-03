@@ -4,105 +4,46 @@ using namespace std;
 void solve() {
     int n, m;
     cin >> n >> m;
+    vector<string> grid(n, string(m, '?'));
 
-    vector grid(n, vector<char>(m));
-
-    struct Node {
-        int x, y;
-    } L;
-
+    queue<pair<int, int>> q;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
             cin >> grid[i][j];
-            if (grid[i][j] == 'L') {
-                L = {i, j};
-            }
+            if (grid[i][j] == 'L') 
+                q.push({i, j});
         }
     }
 
-    int dx[] = {1, 0, -1, 0};
-    int dy[] = {0, 1, 0, -1};
+    vector<pair<int, int>> moves = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-    queue<Node> q;
-    q.push(L);
+    auto out = [&](int x, int y) -> bool { return x < 0 || x >= n || y < 0 || y >= m; };
 
-    auto hahaha = [&](int x, int y) {
-        if (x < 0 || x >= n || y < 0 || y >= m || grid[x][y] == '+' || grid[x][y] == '#' || grid[x][y] == 'L') {
+    auto check = [&](int x, int y) -> bool {
+        if (out(x, y) || grid[x][y] == 'L' || grid[x][y] == '#' || grid[x][y] == '+') 
             return false;
+        int liberty = 0;
+        for (auto [dx, dy] : moves) {
+            int nx = x + dx, ny = y + dy;
+            if (!out(nx, ny) && grid[nx][ny] == '.') 
+                ++liberty;
         }
-        int res = 0;
-        for (int i = 0; i < 4; ++i) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            if (nx < 0 || nx >= n || ny < 0 || ny >= m) {
-                continue;
-            }
-            if (grid[nx][ny] != '#') {
-                ++res;
-            }
-        }
-        if (res > 3) {
-            return false;
-        }
-
-        for (int i = 0; i < 4; ++i) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            if (nx < 0 || nx >= n || ny < 0 || ny >= m) {
-                continue;
-            }
-            if (grid[nx][ny] == '+' || grid[nx][ny] == 'L') {
-                return true;
-            }
-        }
-
-        return false;
+        return liberty <= 1;
     };
-
-
-    auto hahaha2 = [&](int x, int y) {
-        if (x < 0 || x >= n || y < 0 || y >= m || grid[x][y] == '+' || grid[x][y] == '#' || grid[x][y] == 'L') {
-            return false;
-        }
-        int res = 0;
-        for (int i = 0; i < 4; ++i) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            if (nx < 0 || nx >= n || ny < 0 || ny >= m) {
-                continue;
-            }
-            if (grid[nx][ny] == '.') {
-                ++res;
-            }
-        }
-        if (!(res > 1)) {
-            return true;
-        } else {
-            return false;
-        }
-    };
-
 
     while (!q.empty()) {
-        Node now = q.front();
+        auto [x, y] = q.front();
         q.pop();
-        int x = now.x, y = now.y;
-        for (int i = 0; i < 4; ++i) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            if (hahaha2(nx, ny)) {
-                q.push({nx, ny});
+        for (auto [dx, dy] : moves) {
+            int nx = x + dx, ny = y + dy;
+            if (check(nx, ny)) {
                 grid[nx][ny] = '+';
+                q.push({nx, ny});
             }
         }
     }
 
-    for (auto &row : grid) {
-        for (char &ch : row) {
-            cout << ch;
-        }
-        cout << '\n';
-    }
+    for (auto row : grid) cout << row << '\n';
 }
 
 int main() {

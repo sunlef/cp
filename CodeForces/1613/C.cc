@@ -7,38 +7,18 @@ void solve() {
     i64 h;
     cin >> n >> h;
 
-    vector<int> a(n);
-    for (int &x : a) {
-        cin >> x;
+    vector<i64> a(n);
+    for (i64 &ai : a) {
+        cin >> ai;
     }
 
-    auto check = [&](i64 x) {
-        i64 now = 0;
-
-        for (int i = 0; i < n - 1; ++i){
-            if (a[i + 1] - a[i] < x) {
-                now += a[i + 1] - a[i];
-            } else {
-                now += x;
-            }
+    cout << *ranges::partition_point(ranges::iota_view(0ll, h), [&](i64 x) {
+        i64 now = x;
+        for (int i = 0; i < n - 1; ++i) {
+            now += min(a[i + 1] - a[i], x);
         }
-
-        now += x;
-
-        return now >= h;
-    };
-
-    i64 l = 0, r = 1e18;
-    while (l < r) {
-        i64 mid = (l + r) / 2;
-        if (check(mid)) {
-            r = mid;
-        } else {
-            l = mid + 1;
-        }
-    }
-
-    cout << l << '\n';
+        return now < h;
+    }) << '\n';
 }
 
 int main() {
