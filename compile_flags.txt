@@ -1,0 +1,4 @@
+-std=c++2b
+-Wall
+-Wextra
+-O2
