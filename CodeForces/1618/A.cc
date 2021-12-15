@@ -2,29 +2,17 @@
 using namespace std;
 
 void solve() {
-	vector<int> a(7);
-	for (int &ai : a) {
-		cin >> ai;
-	}
+    vector<int> a(7);
+    for (int &ai : a) {
+        cin >> ai;
+    }
+    ranges::sort(a);
 
-	auto b = a;
-
-	auto get = [&] () -> vector<int> {
-		vector<int> res;
-		res.push_back(b[0]);
-		res.push_back(b[1]);
-		res.push_back(b[2]);
-		res.push_back(b[0] + b[1]);
-		res.push_back(b[0] + b[2]);
-		res.push_back(b[1] + b[2]);
-		res.push_back(b[0] + b[1] + b[2]);
-		sort(res.begin(), res.end());
-		return res;
-	};
-	while (get() != a) {
-		ranges::next_permutation(b);
-	}
-	cout << b[0] << ' ' << b[1] << ' ' << b[2] << '\n';
+    if (a[0] + a[1] == a[2]) {
+        cout << a[0] << ' ' << a[1] << ' ' << a[3] << '\n';
+    } else {
+        cout << a[0] << ' ' << a[1] << ' ' << a[2] << '\n';
+    }
 }
 
 int main() {

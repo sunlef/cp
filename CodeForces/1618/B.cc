@@ -5,39 +5,35 @@ void solve() {
     int n;
     cin >> n;
 
-    vector<string> a(n - 2);
-    for (auto &s : a) {
-        cin >> s;
+    vector<string> vs(n - 2);
+    for (auto &str : vs) {
+        cin >> str;
     }
 
-    bool flag = true;
     int pos = -1;
     for (int i = 1; i < n - 2; ++i) {
-    	if (a[i][0] != a[i - 1][1]) {
-    		flag = false;
-    		pos = i;
-    	}
+        if (vs[i - 1][1] != vs[i][0]) {
+            pos = i;
+        }
     }
 
-    if (flag) {
-    	cout << 'a';
+    if (pos == -1) {
     	for (int i = 0; i < n - 2; ++i) {
-    		cout << a[i][0];
+    		cout << vs[i][0];
     	}
-    	cout << a.back().back() << '\n';
-    	
+    	cout << vs.back().back() << 'a' << '\n';
     } else {
-    	for (int i = 0; i < n - 2; ++i) {
-    		if (i == pos) {
-    			if (a[i][0] == 'b') {
-    				cout << 'a';
-    			} else {
+    	for (int i = 0 ; i < n - 2; ++i) {
+    		if (pos == i) {
+    			if (vs[i][0] == 'a') {
     				cout << 'b';
+    			}else {
+    				cout << 'a';
     			}
     		}
-    		cout << a[i][0];
+    		cout << vs[i][0];
     	}
-    	cout << a.back().back() << '\n';
+    	cout << vs.back().back() << '\n';
     }
 }
 
