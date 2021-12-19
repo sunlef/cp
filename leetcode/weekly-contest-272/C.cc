@@ -2,7 +2,7 @@
 using namespace std;
 
 class Solution {
-public:
+    public:
     long long getDescentPeriods(vector<int>& prices) {
         int n = prices.size();
         vector<int> a(n, 1);
@@ -15,7 +15,4 @@ public:
     }
 };
 
-int main() {
-
-    return 0;
-}
+int main() { return 0; }
