@@ -1,0 +1,18 @@
+<snippet>
+<content><![CDATA[
+// Area of polygon whose perimeter points are given in order in array
+double polyarea(const std::vector<point> &P) {
+    double area = 0;
+    int n = P.size();
+    for (int i = 1; i + 1 < n; i++) {
+        point v1 = P[i] - P[0];  //taking 0th point as origin
+        point v2 = P[i + 1] - P[0];
+        area += cross(v1, v2);
+    }
+    return std::abs(area / 2.0);
+}
+]]></content>
+<tabTrigger>polygon_area</tabTrigger>
+<description>多边形面积</description>
+<scope>source.c++</scope>
+</snippet>

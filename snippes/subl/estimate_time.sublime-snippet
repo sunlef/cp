@@ -1,0 +1,15 @@
+<snippet>
+<content><![CDATA[
+std::chrono::time_point<std::chrono::high_resolution_clock> start, end;
+start = std::chrono::high_resolution_clock::now();
+/*
+	Code goes here
+*/
+end = std::chrono::high_resolution_clock::now();
+int64_t elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+std::cout << "\nElapsed Time: " << elapsed_time << "ms\n";
+]]></content>
+<tabTrigger>estimate_time</tabTrigger>
+<description>测量时间</description>
+<scope>source.c++</scope>
+</snippet>

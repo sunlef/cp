@@ -1,0 +1,23 @@
+<snippet>
+<content><![CDATA[
+struct fenwick {
+    int n;
+    std::vector<int> info;
+
+    fenwick(int n) : n(n + 1), info(n + 1) {}
+    void add(int pos, int val) {
+        for (; pos < n; pos += pos & -pos)
+            info[pos] += val;
+    }
+    int query(int pos) {
+        int res = 0;
+        for (; pos; pos -= pos & -pos)
+            res += info[pos];
+        return res;
+    }
+};
+]]></content>
+<tabTrigger>fenwick</tabTrigger>
+<description>树状数组</description>
+<scope>source.c++, meta.struct.c++, keyword.declaration.struct.type.c++</scope>
+</snippet>

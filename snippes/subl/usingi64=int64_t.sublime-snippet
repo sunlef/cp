@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+using i64 = int64_t;
+]]></content>
+<tabTrigger>usingi64=int64_t</tabTrigger>
+<description>using i64 = int64_t;</description>
+<scope>source.c++</scope>
+</snippet>

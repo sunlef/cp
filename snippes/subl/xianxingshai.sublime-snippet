@@ -1,0 +1,27 @@
+<snippet>
+<content><![CDATA[
+struct prime {
+    size_t max_num;
+    std::vector<int> primes;
+    std::deque<bool> visted;
+
+    prime(int _max_num) : max_num(size_t(_max_num + 1)), primes(), visted(size_t(_max_num + 1), false) {
+        for (size_t i = 2; i <= max_num; ++i) {
+            if (!visted[i]) primes.emplace_back(i);
+            for (size_t j = 0; j < primes.size() && (__int128_t)(primes[j] * i) <= max_num; ++j) {
+                visted[primes[j] * i] = 1;
+                if (i % primes[j] == 0) break;
+            }
+        }
+    }
+
+    bool is_prime(int x) {
+        if (x < 2 || x > int(max_num)) return false;
+        return !visted[x];
+    }
+};
+]]></content>
+<tabTrigger>xianxingshai</tabTrigger>
+<description>线性筛</description>
+<scope>source.c++, meta.struct.c++, keyword.declaration.struct.type.c++</scope>
+</snippet>

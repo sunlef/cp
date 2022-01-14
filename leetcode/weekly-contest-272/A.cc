@@ -3,7 +3,7 @@ using namespace std;
 
 class Solution {
     public:
-    bool check(const string& s) {
+    bool check(const string &s) {
         int n = s.size();
         for (int i = 0; i < n; ++i) {
             if (s[i] != s[n - i - 1]) {
@@ -12,8 +12,8 @@ class Solution {
         }
         return true;
     }
-    string firstPalindrome(vector<string>& words) {
-        for (auto& str : words) {
+    string firstPalindrome(vector<string> &words) {
+        for (auto &str : words) {
             if (check(str)) {
                 return str;
             }

@@ -2,7 +2,7 @@
 using namespace std;
 
 class Solution {
-public:
+    public:
     string addSpaces(string s, vector<int>& spaces) {
         string res = "";
         int now = 0;
@@ -15,12 +15,9 @@ public:
             }
             res.push_back(s[i]);
         }
-        
+
         return res;
     }
 };
 
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

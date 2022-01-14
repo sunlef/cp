@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+vector<pair<int, int>> moves = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+]]></content>
+<tabTrigger>4dirmoves</tabTrigger>
+<description>四个方向的moves</description>
+<scope>source.c++</scope>
+</snippet>

@@ -1,0 +1,26 @@
+<snippet>
+<content><![CDATA[
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+	${0:がんばれるなら、がんばるべきなんです}
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int T;
+    cin >> T;
+    for (int TwT = 1; TwT <= T; ++TwT) {
+        solve();
+    }
+
+    return 0;
+}
+]]></content>
+<tabTrigger>touwenjian2</tabTrigger>
+<description>多组数据头文件</description>
+<scope>source.c++, meta.function.c++, meta.block.c++, punctuation.section.block.end.c++</scope>
+</snippet>

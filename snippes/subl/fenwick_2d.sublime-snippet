@@ -1,0 +1,25 @@
+<snippet>
+<content><![CDATA[
+struct fenwick_2d {
+    int n, m;
+    std::vector<vector<int>> info;
+
+    fenwick_2d(int n, int m) : n(n + 1), m(m + 1), info(n + 1, std::vector<int>(m + 1)) {}
+    void add(int x, int y, int val) {
+        for (; x < n; x += x & -x)
+            for (; y < m; y += y & -y)
+                info[x][y] += val;
+    }
+    int query(int x, int y) {
+        int res = 0;
+        for (; x; x -= x & -x)
+            for (; y; y -= y & -y)
+                res += info[x][y];
+        return res;
+    }
+};
+]]></content>
+<tabTrigger>fenwick_2d</tabTrigger>
+<description>二维树状数组</description>
+<scope>source.c++, meta.struct.c++, keyword.declaration.struct.type.c++</scope>
+</snippet>

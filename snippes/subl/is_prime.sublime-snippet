@@ -1,0 +1,35 @@
+<snippet>
+<content><![CDATA[
+bool is_prime(int32_t n) {
+    if (n <= 1) {
+        return false;
+    }
+    if (n == 2 || n == 7 || n == 61) {
+        return true;
+    }
+    if (n % 2 == 0) {
+        return false;
+    }
+    int64_t d = n - 1;
+    while (d % 2 == 0) {
+        d /= 2;
+    }
+    constexpr int64_t bases[3] = {2, 7, 61};
+    for (int64_t a : bases) {
+        int64_t t = d;
+        int64_t y = pow_mod(a, t, n);
+        while (t != n - 1 && y != 1 && y != n - 1) {
+            y = y * y % n;
+            t <<= 1;
+        }
+        if (y != n - 1 && t % 2 == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+]]></content>
+<tabTrigger>is_prime</tabTrigger>
+<description>巴雷特/判断素数</description>
+<scope>source.c++, meta.struct.c++, meta.block.c++, meta.method.c++, meta.block.c++, meta.preprocessor.c++</scope>
+</snippet>

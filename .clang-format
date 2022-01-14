@@ -1,6 +1,6 @@
 #clang-format -i <file>
 
-#edited at 19:51 2021/11/08
+#edited at 19:51 2022/1/15
 
 Language: Cpp
 
@@ -8,7 +8,9 @@ BasedOnStyle: Google
 
 ### WHY THIS TWO NOT WORK ????
 #ReferenceAlignment: Right 
-#PointerAlignment: Right
+#PointerAlignment: PAS_Right
+
+#DerivePointerAlignment: false
 
 IndentWidth: 4
 TabWidth: 4
