@@ -3,4 +3,3 @@ GXX = g++
 
 %: %.cc
 	@${GXX} $^ ${CXXFLAGS} -o ./$@
-	@find . -name "*$@*"
